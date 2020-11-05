@@ -5,6 +5,7 @@
     > Created Time: Wed 02 Sep 2020 11:28:28 PM CST
  ************************************************************************/
 
+/* Stack overflow the internel flag variable */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,9 +25,11 @@ void usage()
 int verify_passwd(char *passwd_str)
 {
 
-	char auther = true;
+	char auther = false;
 	char buff[8];
-	auther = strcmp(PASSWD, passwd_str);
+	if(!strcmp(PASSWD, passwd_str)) {
+		auther = true;
+	}
 	strcpy(buff, passwd_str);
 	return auther;
 }
@@ -34,18 +37,18 @@ int verify_passwd(char *passwd_str)
 int main(int argc, char *argv[])
 {
 
-	int ret = false;
+	int pass = false;
 
 	if (argc != 2) {
 		usage();
 		exit(0);
 	}
 
-	ret = verify_passwd(argv[1]);
-	if (ret) {
-		printf("Wrong passwd, try again...\n");
-	} else {
+	pass = verify_passwd(argv[1]);
+	if (pass) {
 		printf("Got the right passwd!\n");
+	} else {
+		printf("Wrong passwd, try again...\n");
 	}
 	return 0;
 }
