@@ -1,3 +1,8 @@
+# build directory
+build/
+# Read tmp files
+tags
+cscope*
 # Prerequisites
 *.d
 
