@@ -8,4 +8,4 @@
 
 execute=build/elf_parse
 make
-./$execute test_elf
+./$execute test_elf -h
