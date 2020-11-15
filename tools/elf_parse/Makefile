@@ -5,7 +5,7 @@ OUT_DIR=$(CUR)/build
 TARGET=elf_parse
 
 CC=gcc
-CFLAGS= -g -Werror 
+CFLAGS= -g -Werror -std=c99
 LD_FLAGS= -Wl,-Map=output.map
 OBJCPY=objcopy
 
